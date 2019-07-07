@@ -49,24 +49,25 @@ function factorial(n) {
 //the function returns new array with numbers not higher than maxNumber.
 
 function filterNumbers(arr, maxNumber) {
-    let a =[];
+    let arrNew =[];
     for (let i=0; i<arr.length; i++) {
-      if (arr[i] < maxNumber) a.push(arr[i]);
+      if (arr[i] < maxNumber) arrNew.push(arr[i]);
     }
-    return a;
+    return arrNew;
   }
   
 console.log(filterNumbers([1, 4, 8, 1, 20], 5)); // [1, 4, 1]
 
-/*function filterNumbers(arr, maxNumber) {
-    let arrNew = arr.map(function(item) {
-      if (item < maxNumber) return item;
-    })
-    return arrNew;
-  }
-  
-  console.log(filterNumbers([1, 4, 8, 1, 20], 5)); // [1, 4, 1]  -> [1, 4, undefined, 1, undefined]
-*/
+        /*  Метод 2
+        function filterNumbers(arr, maxNumber) {
+        let arrNew = [];
+            arr.map(function(item) {
+            if (item < maxNumber) {arrNew.push(item);}
+            })
+            return arrNew;
+        }
+        console.log(filterNumbers([1, 4, 8, 1, 20], 5)); // [1, 4, 1]
+        */
 
 // Task 7
 //A function that returns object with min and max numbers from array of numbers.
@@ -86,9 +87,41 @@ function minMax(arr) {
 
 
 // Task 8
+//A function that returns average of numbers in array.
+
+function average(arr) {
+    let result = arr.reduce(function(prevResult, current) {
+      return prevResult + current
+    });
+    return result/arr.length;
+  }
+    
+   console.log(average([1,4,2])); // 2.33
+   console.log(average([1,4,4])); // 3
+   console.log(average([1,4,1])); // 2
 
 
 // Task 9
+//A function which concats all first-nested arrays in one array (use reduce)
+
+function concatFirstNestedArrays(arr) {
+  return arr.reduce(function(prevRes, current) {
+    let c =[...prevRes];
+    c.push(...current); 
+    return c;
+  });
+}
+console.log(concatFirstNestedArrays([[0, 1], [2, 3], [4, 5]])); // [0, 1, 2, 3, 4, 5]
+
+        /*  Метод 2
+        function concatFirstNestedArrays(arr) {
+            let arrNew = [];
+            arr.map(function(item) { arrNew.push(...item) })
+            return arrNew;
+        }
+
+        console.log(concatFirstNestedArrays([[0, 1], [2, 3], [4, 5]])); // [0, 1, 2, 3, 4, 5]
+        */
 
 
 // Task 10
