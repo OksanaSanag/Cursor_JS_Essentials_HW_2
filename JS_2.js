@@ -2,11 +2,10 @@
 // A function which prints str after n seconds.
 
 function printTimeout(str, n) { 
-    
     setTimeout(function(){console.log(str);}, n*1000)
-  }
+}
     
-  printTimeout('hello', 5)
+printTimeout('hello', 5)
 
 
 // Task 2
@@ -20,8 +19,8 @@ function sumAll(n) {
   }
   // Метод 2
   // return (n != 1) ?  n + sumAll(n - 1) :  n;
-  console.log(sumAll(2)); // 3
-  console.log(sumAll(4)); // 10
+console.log(sumAll(2)); // 3
+console.log(sumAll(4)); // 10
 
 
 // Task 3
@@ -42,8 +41,8 @@ function factorial(n) {
   // Метод 2
   // return (n != 1) ?  n*factorial(n-1) :  n;
 
-   console.log(factorial(3)); // 6
-   console.log(factorial(5)); // 120
+console.log(factorial(3)); // 6
+console.log(factorial(5)); // 120
 
 // Task 5
 
@@ -95,22 +94,22 @@ function minMax(arr) {
   };
 }
   
-  console.log(minMax([1, 4, 8, 2, 20])); // { max: 20, min: 1 }
+console.log(minMax([1, 4, 8, 2, 20])); // { max: 20, min: 1 }
 
 
 // Task 8
 //A function that returns average of numbers in array.
 
 function average(arr) {
-    let result = arr.reduce(function(prevResult, current) {
-      return prevResult + current
-    });
-    return ( Math.round(result/arr.length * 100) / 100 );
+  let result = arr.reduce(function(prevResult, current) {
+    return prevResult + current
+  });
+  return ( Math.round(result/arr.length * 100) / 100 );
 }
     
-   console.log(average([1,4,2])); // 2.33
-   console.log(average([1,4,4])); // 3
-   console.log(average([1,4,1])); // 2
+console.log(average([1,4,2])); // 2.33
+console.log(average([1,4,4])); // 3
+console.log(average([1,4,1])); // 2
 
 
 // Task 9
@@ -176,8 +175,7 @@ const users = [
 ];
 
 function filterUsersByMonth(users, month) {
-
-   return users.filter(function(item) {    
+  return users.filter(function(item) {    
     return item.birthday.split('-')[1] == month /* +1 */ ;                        
   });  
 }
