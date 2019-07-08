@@ -125,3 +125,30 @@ console.log(concatFirstNestedArrays([[0, 1], [2, 3], [4, 5]])); // [0, 1, 2, 3, 
 
 
 // Task 10
+//A function accepts array of users and returns object of users where key is user id and value user data.
+
+const users = [
+  { id: 1, name: 'John', birthday: '1999-2-12' },
+  { id: 2, name: 'Bill', birthday: '1999-1-19' },
+  { id: 3, name: 'Carol', birthday: '1999-3-11' },
+  { id: 4, name: 'Luce', birthday: '1999-2-22' }
+];
+
+function usersToObject(users) {
+  let obj = new Object();
+  users.forEach(function(item) {    
+    obj[item.id] = item;                            
+  });
+
+return obj;
+}
+
+console.log(usersToObject(users));
+
+
+// Task 11
+//A function returns array of users that have birthdays in a specific month.
+
+
+// Task 12
+//A function returns name and age of users separated by comma that are older than 18.
