@@ -3,7 +3,7 @@
 
 function printTimeout(str, n) { 
     
-    return setTimeout(function(){console.log(str);}, n*1000)
+    setTimeout(function(){console.log(str);}, n*1000)
   }
     
   printTimeout('hello', 5)
