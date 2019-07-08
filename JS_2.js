@@ -18,6 +18,8 @@ function sumAll(n) {
     }
     else return n;
   }
+  // Метод 2
+  // return (n != 1) ?  n + sumAll(n - 1) :  n;
   console.log(sumAll(2)); // 3
   console.log(sumAll(4)); // 10
 
@@ -37,7 +39,9 @@ function factorial(n) {
     }
     else return n; 
   }
-  
+  // Метод 2
+  // return (n != 1) ?  n*factorial(n-1) :  n;
+
    console.log(factorial(3)); // 6
    console.log(factorial(5)); // 120
 
@@ -48,17 +52,26 @@ function factorial(n) {
 //A function which takes an array of numbers and maxNumber, 
 //the function returns new array with numbers not higher than maxNumber.
 
-function filterNumbers(arr, maxNumber) {
-    let arrNew =[];
-    for (let i=0; i<arr.length; i++) {
-      if (arr[i] < maxNumber) arrNew.push(arr[i]);
-    }
-    return arrNew;
-  }
-  
+function filterNumbers(arr, maxNumber){ 
+  return arr.filter(function (item) {
+      return item < maxNumber;
+    });     
+}
+
 console.log(filterNumbers([1, 4, 8, 1, 20], 5)); // [1, 4, 1]
 
-        /*  Метод 2
+        /* Метод 2
+        function filterNumbers(arr, maxNumber) {
+            let arrNew =[];
+            for (let i=0; i<arr.length; i++) {
+              if (arr[i] < maxNumber) arrNew.push(arr[i]);
+            }
+            return arrNew;
+          }
+        
+        console.log(filterNumbers([1, 4, 8, 1, 20], 5)); // [1, 4, 1]
+        */
+        /*  Метод 3
         function filterNumbers(arr, maxNumber) {
         let arrNew = [];
             arr.map(function(item) {
