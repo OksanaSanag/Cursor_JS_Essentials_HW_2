@@ -168,6 +168,22 @@ console.log(usersToObject(users));
 // Task 11
 //A function returns array of users that have birthdays in a specific month.
 
+const users = [
+  { name: 'John', birthday: '1999-2-12' },
+  { name: 'Bill', birthday: '1999-1-19' },
+  { name: 'Carol', birthday: '1999-4-11' },
+  { name: 'Luce', birthday: '1999-2-22' }
+];
+
+function filterUsersByMonth(users, month) {
+
+   return users.filter(function(item) {    
+    return item.birthday.split('-')[1] == month /* +1 */ ;                        
+  });  
+}
+// я думаю, що у виклику ф-ції помилка, бо нульового місяця не існує:) якщо ж так і задумано, то в return ... == month + 1;
+console.log(filterUsersByMonth(users, 1)); // [{ name: 'Bill', birthday: '1999-1-19' }]
+
 
 // Task 12
 //A function returns name and age of users separated by comma that are older than 18.
