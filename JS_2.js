@@ -73,15 +73,14 @@ console.log(filterNumbers([1, 4, 8, 1, 20], 5)); // [1, 4, 1]
 //A function that returns object with min and max numbers from array of numbers.
 
 function minMax(arr) {
-    let min = function() { return Math.min(...arr);};
-    let max = function() { return Math.max(...arr);};
-    
-    let a = {
-      min: min(),
-      max: max()
-    }
-    return a;
-    }
+  //let min = function() { return Math.min(...arr);};
+  //let max = function() { return Math.max(...arr);};
+  
+  return {
+    min: function() { return Math.min(...arr);}(),
+    max: function() { return Math.max(...arr);}()
+  };
+}
   
   console.log(minMax([1, 4, 8, 2, 20])); // { max: 20, min: 1 }
 
@@ -93,8 +92,8 @@ function average(arr) {
     let result = arr.reduce(function(prevResult, current) {
       return prevResult + current
     });
-    return result/arr.length;
-  }
+    return ( Math.round(result/arr.length * 100) / 100 );
+}
     
    console.log(average([1,4,2])); // 2.33
    console.log(average([1,4,4])); // 3
@@ -113,13 +112,20 @@ function concatFirstNestedArrays(arr) {
 }
 console.log(concatFirstNestedArrays([[0, 1], [2, 3], [4, 5]])); // [0, 1, 2, 3, 4, 5]
 
-        /*  Метод 2
+        /* Метод 2
+        function concatFirstNestedArrays(arr) {
+          return arr.reduce(function(prevRes, current) {
+             return prevRes.concat(current);
+          });
+        }
+        console.log(concatFirstNestedArrays([[0, 1], [2, 3], [4, 5]])); // [0, 1, 2, 3, 4, 5]
+
+        /*  Метод 3
         function concatFirstNestedArrays(arr) {
             let arrNew = [];
             arr.map(function(item) { arrNew.push(...item) })
             return arrNew;
         }
-
         console.log(concatFirstNestedArrays([[0, 1], [2, 3], [4, 5]])); // [0, 1, 2, 3, 4, 5]
         */
 
