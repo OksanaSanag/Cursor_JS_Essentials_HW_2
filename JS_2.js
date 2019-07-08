@@ -63,13 +63,14 @@ console.log(filterNumbers([1, 4, 8, 1, 20], 5)); // [1, 4, 1]
         function filterNumbers(arr, maxNumber) {
             let arrNew =[];
             for (let i=0; i<arr.length; i++) {
-              if (arr[i] < maxNumber) arrNew.push(arr[i]);
+              if (arr[i] < maxNumber) {arrNew.push(arr[i]);}
             }
             return arrNew;
           }
         
         console.log(filterNumbers([1, 4, 8, 1, 20], 5)); // [1, 4, 1]
         */
+
         /*  Метод 3
         function filterNumbers(arr, maxNumber) {
         let arrNew = [];
@@ -179,9 +180,22 @@ function filterUsersByMonth(users, month) {
     return item.birthday.split('-')[1] == month /* +1 */ ;                        
   });  
 }
-// я думаю, що у виклику ф-ції помилка, бо нульового місяця не існує:) якщо ж так і задумано, то в return ... == month + 1;
-console.log(filterUsersByMonth(users, 1)); // [{ name: 'Bill', birthday: '1999-1-19' }]
 
+console.log(filterUsersByMonth(users, 1)); // [{ name: 'Bill', birthday: '1999-1-19' }]
+    // Метод 2
+    /*    
+    function filterUsersByMonth(users, month) { 
+    
+      return users.filter(function(item) {   
+        let today = new Date(2018, month, 1); 
+        let arr = item.birthday.split('-').map(Number); 
+        let date = new Date(arr[0], arr[1], arr[2]);    
+        return date.getMonth() == today.getMonth();
+      });   
+    }
+    
+    console.log(filterUsersByMonth(users, 1));
+    */
 
 // Task 12
 //A function returns name and age of users separated by comma that are older than 18.
