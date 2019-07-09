@@ -27,6 +27,18 @@ console.log(sumAll(4)); // 10
 //A function which takes str and time in seconds as arguments, then every second it should count down 
 //from time to 0 and print current time to console when time equals to 0 it prints str
 
+function bombTimer(str, time) {  
+  let timerId = setInterval(function() {
+    console.log(time--);
+  }, 1000);
+  
+  setTimeout(function() {
+    clearInterval(timerId);
+    console.log(str);
+  }, (time+1)*1000);
+}
+
+bombTimer('Boooom', 3);
 
 
 // Task 4
@@ -46,6 +58,15 @@ console.log(factorial(5)); // 120
 
 // Task 5
 
+function bombTimer(str, time) {       
+  console.log(time);
+  if (time != 0) { return setTimeout(function() { 
+  bombTimer(str, time-1)
+  }, 1000);}
+  console.log(str);   
+}
+
+bombTimer('Boooom', 3);
 
 // Task 6
 //A function which takes an array of numbers and maxNumber, 
@@ -53,7 +74,7 @@ console.log(factorial(5)); // 120
 
 function filterNumbers(arr, maxNumber){ 
   return arr.filter(function (item) {
-      return item < maxNumber;
+      return item <= maxNumber;
     });     
 }
 
@@ -61,9 +82,9 @@ console.log(filterNumbers([1, 4, 8, 1, 20], 5)); // [1, 4, 1]
 
         /* Метод 2
         function filterNumbers(arr, maxNumber) {
-            let arrNew =[];
+            const arrNew =[];
             for (let i=0; i<arr.length; i++) {
-              if (arr[i] < maxNumber) {arrNew.push(arr[i]);}
+              if (arr[i] <= maxNumber) {arrNew.push(arr[i]);}
             }
             return arrNew;
           }
@@ -73,9 +94,9 @@ console.log(filterNumbers([1, 4, 8, 1, 20], 5)); // [1, 4, 1]
 
         /*  Метод 3
         function filterNumbers(arr, maxNumber) {
-        let arrNew = [];
+            const arrNew = [];
             arr.map(function(item) {
-            if (item < maxNumber) {arrNew.push(item);}
+            if (item <= maxNumber) {arrNew.push(item);}
             })
             return arrNew;
         }
@@ -102,10 +123,12 @@ console.log(minMax([1, 4, 8, 2, 20])); // { max: 20, min: 1 }
 //A function that returns average of numbers in array.
 
 function average(arr) {
-  let result = arr.reduce(function(prevResult, current) {
+  const result = arr.reduce(function(prevResult, current) {
     return prevResult + current
   });
-  return ( Math.round(result/arr.length * 100) / 100 );
+  return (result/arr.length).toFixed(2);
+  // або 
+  //return ( Math.round(result/arr.length * 100) / 100 );  
 }
     
 console.log(average([1,4,2])); // 2.33
@@ -118,9 +141,11 @@ console.log(average([1,4,1])); // 2
 
 function concatFirstNestedArrays(arr) {
   return arr.reduce(function(prevRes, current) {
-    let c =[...prevRes];
-    c.push(...current); 
-    return c;
+    return [...prevRes, ...current];
+    // або
+    //const c =[...prevRes];
+    //c.push(...current); 
+    //return c;
   });
 }
 console.log(concatFirstNestedArrays([[0, 1], [2, 3], [4, 5]])); // [0, 1, 2, 3, 4, 5]
@@ -135,7 +160,7 @@ console.log(concatFirstNestedArrays([[0, 1], [2, 3], [4, 5]])); // [0, 1, 2, 3, 
 
         /*  Метод 3
         function concatFirstNestedArrays(arr) {
-            let arrNew = [];
+            const arrNew = [];
             arr.map(function(item) { arrNew.push(...item) })
             return arrNew;
         }
@@ -154,7 +179,7 @@ const users = [
 ];
 
 function usersToObject(users) {
-  let obj = new Object();
+  const obj = new Object();
   users.forEach(function(item) {    
     obj[item.id] = item;                            
   });
@@ -183,13 +208,13 @@ function filterUsersByMonth(users, month) {
 
 console.log(filterUsersByMonth(users, 1)); // [{ name: 'Bill', birthday: '1999-1-19' }]
     // Метод 2
-    /*    
-    function filterUsersByMonth(users, month) { 
+    /*
     
+    function filterUsersByMonth(users, month) {     
       return users.filter(function(item) {   
-        let today = new Date(2018, month, 1); 
-        let arr = item.birthday.split('-').map(Number); 
-        let date = new Date(arr[0], arr[1], arr[2]);    
+        const today = new Date(2018, month, 1); 
+        const arr = item.birthday.split('-').map(Number); 
+        const date = new Date(arr[0], arr[1], arr[2]);    
         return date.getMonth() == today.getMonth();
       });   
     }
