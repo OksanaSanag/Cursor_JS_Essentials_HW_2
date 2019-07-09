@@ -57,6 +57,7 @@ console.log(factorial(3)); // 6
 console.log(factorial(5)); // 120
 
 // Task 5
+//Implement function from task №3 (bombTimer) using recursion and setTimeout.
 
 function bombTimer(str, time) {       
   console.log(time);
@@ -107,9 +108,6 @@ console.log(filterNumbers([1, 4, 8, 1, 20], 5)); // [1, 4, 1]
 //A function that returns object with min and max numbers from array of numbers.
 
 function minMax(arr) {
-  //let min = function() { return Math.min(...arr);};
-  //let max = function() { return Math.max(...arr);};
-  
   return {
     min: function() { return Math.min(...arr);}(),
     max: function() { return Math.max(...arr);}()
@@ -221,6 +219,3 @@ console.log(filterUsersByMonth(users, 1)); // [{ name: 'Bill', birthday: '1999-1
     
     console.log(filterUsersByMonth(users, 1));
     */
-
-// Task 12
-//A function returns name and age of users separated by comma that are older than 18.
