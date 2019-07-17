@@ -45,11 +45,14 @@ bombTimer('Boooom', 3);
 //A function which returns factorial of number using recursion.
 
 function factorial(n) {
+  if (n == 0) { return 1; }
+  else {
     if (n != 1) {
       return n*factorial(n-1);
     }
     else return n; 
   }
+}
   // Метод 2
   // return (n != 1) ?  n*factorial(n-1) :  n;
 
@@ -109,8 +112,8 @@ console.log(filterNumbers([1, 4, 8, 1, 20], 5)); // [1, 4, 1]
 
 function minMax(arr) {
   return {
-    min: function() { return Math.min(...arr);}(),
-    max: function() { return Math.max(...arr);}()
+    min: Math.min(...arr),
+    max: Math.max(...arr)
   };
 }
   
